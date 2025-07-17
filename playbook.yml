@@ -1,0 +1,11 @@
+- name: Deploy Flask app to containers
+  hosts: dockerhost
+  become: true
+  roles:
+    - appdeploy
+
+- name: Configure Nginx Load Balancer
+  hosts: loadbalancer
+  become: true
+  roles:
+    - loadbalancer

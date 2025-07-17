@@ -1,0 +1,19 @@
+# inventory.yaml (sample)
+all:
+  children:
+    loadbalancer:
+      hosts:
+        192.168.100.10:          #Change to your Load_balancer_ip
+          ansible_user: ansible  #Change to your ansible_user
+
+    dockerhost:
+      hosts:
+        192.168.100.20:          #Change to your docker_host_ip
+          ansible_user: ansible  #Change to your ansible user
+      vars:
+        all_server_ips:
+          - 192.168.100.20:5000  #Change to your docker_host_ip:port
+          - 192.168.100.20:5001  #Change to your docker_host_ip:port
+          - 192.168.100.20:5002  #Change to your docker_host_ip:port
+          - 192.168.100.20:5003  #Change to your docker_host_ip:port
+          - 192.168.100.20:5004  #Change to your docker_host_ip:port
