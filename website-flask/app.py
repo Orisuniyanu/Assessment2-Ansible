@@ -31,7 +31,7 @@ def index():
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Flask Server Status</title>
+        <title>IYANU BluDive</title>
         <style>
             body { font-family: Arial, sans-serif; margin: 40px; background-color: #f5f5f5; }
             h1 { color: #2c3e50; }
