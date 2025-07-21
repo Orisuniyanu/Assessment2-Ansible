@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  upstream1:
+    build: .
+    container_name: server1
+    ports:
+      - "5000:5000"
+
+  upstream2:
+    build: .
+    container_name: server2
+    ports:
+      - "5001:5000"
+
+  upstream3:
+    build: .
+    container_name: server3
+    ports:
+      - "5002:5000"
+
+  upstream4:
+    build: .
+    container_name: server4
+    ports:
+      - "5003:5000"
+
+  upstream5:
+    build: .
+    container_name: server5
+    ports:
+      - "5004:5000"

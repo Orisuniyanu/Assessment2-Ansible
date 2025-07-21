@@ -5,15 +5,15 @@
     mode: preserve
 
 - name: Copy Flask app into containers
-  shell: docker cp /tmp/website-flask website{{ item }}:/app
+  shell: docker cp /tmp/website-flask server{{ item }}:/app
   loop: [1, 2, 3, 4, 5]
 
 - name: Install Flask in containers
-  shell: docker exec website{{ item }} pip3 install flask requests --break-system-packages
+  shell: docker exec server{{ item }} pip3 install flask requests --break-system-packages
   loop: [1, 2, 3, 4, 5]
 
 - name: Restart Flask app in containers
   shell: |
-    docker exec website{{ item }} pkill -f app.py || true
-    docker exec -d website{{ item }} sh -c "ALL_SERVERS='{{ all_server_ips | join(",") }}' python3 /app/website-flask/app.py"
+    docker exec server{{ item }} pkill -f app.py || true
+    docker exec -d server{{ item }} sh -c "ALL_SERVERS='{{ all_server_ips | join(",") }}' python3 /app/website-flask/app.py"
   loop: [1, 2, 3, 4, 5]

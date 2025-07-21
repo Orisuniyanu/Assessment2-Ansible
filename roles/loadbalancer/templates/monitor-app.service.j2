@@ -1,0 +1,12 @@
+[Unit]
+Description=Flask Monitoring App
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/monitor-app
+ExecStart=/usr/bin/python3 /opt/monitor-app/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
